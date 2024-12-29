@@ -1,0 +1,25 @@
+.home-container {
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    color: #ffcc00;
+    text-align: center;
+  }
+  
+  .home-container h1 {
+    margin-bottom: 2rem;
+  }
+  
+  .home-container button {
+    background-color: #ff3333;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .home-container button:hover {
+    background-color: #cc0000;
+  }
