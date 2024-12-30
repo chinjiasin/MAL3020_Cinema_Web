@@ -1,0 +1,91 @@
+.confirmation-page {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .confirmation-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+  }
+  
+  .confirmation-card h2 {
+    color: #ffcc00;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .booking-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .movie-poster {
+    flex: 0 0 200px;
+  }
+  
+  .movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .booking-info {
+    flex: 1;
+  }
+  
+  .booking-info h3 {
+    color: #ffcc00;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-group p, .movie-details p {
+    margin: 0.5rem 0;
+  }
+  
+  .info-group strong, .movie-details strong {
+    color: #ffcc00;
+  }
+  
+  .home-button {
+    background-color: #ffcc00;
+    color: black;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #e6b800;
+  }
+  
+  @media (max-width: 768px) {
+    .booking-details {
+      flex-direction: column;
+    }
+  
+    .movie-poster {
+      flex: 0 0 auto;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }

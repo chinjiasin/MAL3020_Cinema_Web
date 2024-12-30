@@ -508,6 +508,192 @@ async function connectDBBooking() {
     }
   });
 
+  // Connection functions
+async function connectDBScreenings() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB Screenings!");
+    return client.db("Cinema").collection("screenings");
+  } catch (error) {
+    console.error("Database connection error:", error);
+    throw error;
+  }
+}
+
+async function connectDBTheaters() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB Theaters!");
+    return client.db("Cinema").collection("theaters");
+  } catch (error) {
+    console.error("Database connection error:", error);
+    throw error;
+  }
+}
+
+// Screenings CRUD
+app.post("/api/screenings", async (req, res) => {
+  try {
+    const collection = await connectDBScreenings();
+    const screening = req.body;
+    
+    const result = await collection.insertOne(screening);
+    res.status(201).json({
+      message: "Screening created successfully",
+      screening: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.get("/api/screenings", async (req, res) => {
+  try {
+    const collection = await connectDBScreenings();
+    const screenings = await collection.find({}).toArray();
+    res.status(200).json(screenings);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.get("/api/screenings/:id", async (req, res) => {
+  try {
+    const collection = await connectDBScreenings();
+    const screening = await collection.findOne({ _id: req.params.id });
+    
+    if (!screening) {
+      return res.status(404).json({ message: "Screening not found" });
+    }
+    
+    res.status(200).json(screening);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.put("/api/screenings/:id", async (req, res) => {
+  try {
+    const collection = await connectDBScreenings();
+    const updateData = req.body;
+    
+    const result = await collection.updateOne(
+      { _id: req.params.id },
+      { $set: updateData }
+    );
+    
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ message: "Screening not found" });
+    }
+    
+    res.status(200).json({
+      message: "Screening updated successfully",
+      result: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.delete("/api/screenings/:id", async (req, res) => {
+  try {
+    const collection = await connectDBScreenings();
+    const result = await collection.deleteOne({ _id: req.params.id });
+    
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: "Screening not found" });
+    }
+    
+    res.status(200).json({
+      message: "Screening deleted successfully",
+      result: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+// Theaters CRUD
+app.post("/api/theaters", async (req, res) => {
+  try {
+    const collection = await connectDBTheaters();
+    const theater = req.body;
+    
+    const result = await collection.insertOne(theater);
+    res.status(201).json({
+      message: "Theater created successfully",
+      theater: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.get("/api/theaters", async (req, res) => {
+  try {
+    const collection = await connectDBTheaters();
+    const theaters = await collection.find({}).toArray();
+    res.status(200).json(theaters);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.get("/api/theaters/:id", async (req, res) => {
+  try {
+    const collection = await connectDBTheaters();
+    const theater = await collection.findOne({ _id: req.params.id });
+    
+    if (!theater) {
+      return res.status(404).json({ message: "Theater not found" });
+    }
+    
+    res.status(200).json(theater);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.put("/api/theaters/:id", async (req, res) => {
+  try {
+    const collection = await connectDBTheaters();
+    const updateData = req.body;
+    
+    const result = await collection.updateOne(
+      { _id: req.params.id },
+      { $set: updateData }
+    );
+    
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ message: "Theater not found" });
+    }
+    
+    res.status(200).json({
+      message: "Theater updated successfully",
+      result: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+app.delete("/api/theaters/:id", async (req, res) => {
+  try {
+    const collection = await connectDBTheaters();
+    const result = await collection.deleteOne({ _id: req.params.id });
+    
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: "Theater not found" });
+    }
+    
+    res.status(200).json({
+      message: "Theater deleted successfully",
+      result: result
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
 
 
 const PORT = process.env.PORT || 3000;

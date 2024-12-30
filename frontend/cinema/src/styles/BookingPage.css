@@ -1,0 +1,146 @@
+.booking-page {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 2rem;
+  }
+  
+  .booking-poster {
+    max-width: 300px;
+    margin: 0 auto 2rem;
+  }
+  
+  .booking-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .movie-details {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  .movie-details h1 {
+    color: #ffcc00;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .label {
+    color: #ffcc00;
+    font-weight: bold;
+  }
+  
+  .booking-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .booking-options {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .option-group h3 {
+    color: #ffcc00;
+    font-size: 1.2rem;
+  }
+  
+  .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .option-button {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .option-button:hover {
+    background-color: #444444;
+  }
+  
+  .option-button.selected {
+    background-color: #ffcc00;
+    color: #000000;
+  }
+  
+  .proceed-button {
+    background-color: #ffcc00;
+    color: #000000;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .proceed-button:hover {
+    background-color: #ffd633;
+  }
+  
+  .proceed-button.disabled {
+    background-color: #666666;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .booking-page {
+      padding: 1rem;
+    }
+  
+    .details-grid {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+  
+    .booking-section {
+      padding: 1rem;
+    }
+  
+    .options-container {
+      flex-direction: column;
+    }
+  
+    .option-button {
+      width: 100%;
+    }
+  }
