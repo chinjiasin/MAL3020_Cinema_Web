@@ -27,6 +27,10 @@ function Login() {
     }
   };
 
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
@@ -55,6 +59,24 @@ function Login() {
           </div>
           <button type="submit">Login</button>
         </form>
+        <p style={{ marginTop: '1rem', textAlign: 'center', color: '#fff' }}>
+          Don't have an account?{' '}
+          <button
+            type="button"
+            onClick={handleSignUp}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#ffcc00',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontSize: '1rem',
+              padding: 0,
+            }}
+          >
+            Sign Up
+          </button>
+        </p>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import SeatsPage from './components/SeatsPage';
 import ConfirmationPage from './components/ConfirmationPage';
 import History from './components/History';
 import HistoryDetail from './components/HistoryDetail';
+import SignUp from './components/SignUp';
 // import SeatsPage from './components/SeatPage';
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/history" element={<History/>}/>
         <Route path="/history/:id" element={<HistoryDetail/>}/>
+        <Route path='signup' element={<SignUp/>}/>
          {/* <Route path="/seats/:movieId" element={<SeatsPage />} /> */}
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
