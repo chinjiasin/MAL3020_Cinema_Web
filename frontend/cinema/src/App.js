@@ -5,6 +5,8 @@ import Home from './components/Home';
 import BookingPage from './components/BookingPage';
 import SeatsPage from './components/SeatsPage';
 import ConfirmationPage from './components/ConfirmationPage';
+import History from './components/History';
+import HistoryDetail from './components/HistoryDetail';
 // import SeatsPage from './components/SeatPage';
 import './App.css';
 
@@ -22,6 +24,8 @@ function App() {
          <Route path="/booking/:movieId" element={<BookingPage />} />
          <Route path="/seats/:movieId" element={<SeatsPage />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
+        <Route path="/history" element={<History/>}/>
+        <Route path="/history/:id" element={<HistoryDetail/>}/>
          {/* <Route path="/seats/:movieId" element={<SeatsPage />} /> */}
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>

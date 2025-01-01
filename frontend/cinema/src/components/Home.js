@@ -73,7 +73,7 @@ function Home() {
       <header>
         <nav>
           <ul>
-            <li><a href="/" className="active">Home</a></li>
+            <li><a href="/home" className="active">Home</a></li>
             <li><a href="/history">History</a></li>
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           </ul>

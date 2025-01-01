@@ -18,6 +18,7 @@ function Login() {
       });
 
       if (response.status === 200) {
+        console.log(response);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         navigate('/home');
       }

@@ -15,7 +15,7 @@ function ConfirmationPage() {
   } = location.state;
 
   const handleBackToHome = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   return (

@@ -18,6 +18,7 @@ function BookingPage() {
   useEffect(() => {
     console.log('MovieId', movieId);
     fetchMovieDetails();
+    fetchScreenings();
   }, [movieId]);
 
   const fetchMovieDetails = async () => {
